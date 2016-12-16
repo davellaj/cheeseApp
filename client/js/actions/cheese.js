@@ -13,25 +13,28 @@ export const fetchCheeses = () => dispatch => {
 			return response
 		})
 		.then(response => response.json())
-		.then(data => dispatch(fetchCheesesSuccess(data)))
-		.catch(error => dispatch(fetchCheeseError(error)))
+		.then(data => dispatch(theCheese(data)))
+		.catch(error => {
+			console.log(error.response)
+			dispatch(stinkyCheese(error))
+		})
 };
 
-// call theCheese
+
 export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST'
 export const fetchCheesesRequest = () => ({
 	type: FETCH_CHEESES_REQUEST
 })
 
-export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS'
-export const fetchCheesesSuccess = cheese => ({
-	type: FETCH_CHEESES_SUCCESS,
+export const THE_CHEESE = 'THE_CHEESE'
+export const theCheese = cheese => ({
+	type: THE_CHEESE,
 	cheese
 })
 
 // call stinkyCheese
-export const FETCH_CHEESES_ERROR = 'FETCH_CHEESES_ERROR'
-export const fetchCheesesError = (error) => ({
-	type: FETCH_CHEESES_ERROR,
+export const STINKY_CHEESE = 'STINKY_CHEESE'
+export const stinkyCheese = (error) => ({
+	type: STINKY_CHEESE,
 	error
 })

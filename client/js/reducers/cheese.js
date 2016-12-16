@@ -12,11 +12,11 @@ export const ratReducer = (state = initialState, action) => {
 		return {...state, loading: true}
 	}
 
-	if(action.type === actions.FETCH_CHEESES_SUCCESS){
+	if(action.type === actions.THE_CHEESE){
 		return {...state, loading: false, cheeses: action.cheese, error: null}
 	}
 
-	if(action.type === actions.FETCH_CHEESES_ERROR){
+	if(action.type === actions.STINKY_CHEESE){
 		return {...state, loading: false, error: action.error}
 	}
 
