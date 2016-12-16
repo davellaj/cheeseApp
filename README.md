@@ -1,4 +1,5 @@
 # Thinkful Full Stack Template
+Student: Jamie
 
 A template for developing and deploying full stack JavaScript apps.  Supports ES2015 on the client and server-side.
 
