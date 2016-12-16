@@ -27,3 +27,29 @@ function runServer() {
 if (require.main === module) {
     runServer();
 }
+
+
+const cheeses = [
+    "Bath Blue",
+    "Barkham Blue",
+    "Buxton Blue",
+    "Cheshire Blue",
+    "Devon Blue",
+    "Dorset Blue Vinney",
+    "Dovedale",
+    "Exmoor Blue",
+    "Harbourne Blue",
+    "Lanark Blue",
+    "Lymeswold",
+    "Oxford Blue",
+    "Shropshire Blue",
+    "Stichelton",
+    "Stilton",
+    "Blue Wensleydale",
+    "Yorkshire Blue"
+]
+
+app.get('/cheeses', (req, res) => {
+    res.status(200).json(cheeses);
+    console.log('get request to cheese endpoint console log: getting all cheeses');
+})
