@@ -19,5 +19,7 @@ export const ratReducer = (state = initialState, action) => {
 	if(action.type === actions.FETCH_CHEESES_ERROR){
 		return {...state, loading: false, error: action.error}
 	}
+
+	return state;
 }
 
