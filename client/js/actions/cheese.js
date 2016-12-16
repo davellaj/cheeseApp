@@ -3,6 +3,7 @@ import 'isomorphic-fetch';
 export const fetchCheeses = () => dispatch => {
 	const url = 'http://localhost:8080/cheeses'
 	return fetch(url)
+		.then(dispatch(fetchCheesesRequest()))
 		.then(response => {
 			if(!response.ok) {
 				const error = new Error(response.statusText)
@@ -12,24 +13,25 @@ export const fetchCheeses = () => dispatch => {
 			return response
 		})
 		.then(response => response.json())
-		.then(data => dispatch(theCheese(data))
-		)
-		.catch(error => dispatch(stinkyCheese(error)))
+		.then(data => dispatch(fetchCheesesSuccess(data)))
+		.catch(error => dispatch(fetchCheeseError(error)))
 };
 
-export const THE_CHEESE = 'THE_CHEESE'
-export const theCheese = cheese => ({
-	type: THE_CHEESE
+// call theCheese
+export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST'
+export const fetchCheesesRequest = () => ({
+	type: FETCH_CHEESES_REQUEST
+})
+
+export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS'
+export const fetchCheesesSuccess = cheese => ({
+	type: FETCH_CHEESES_SUCCESS,
 	cheese
 })
 
-// export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS'
-// export const fetchCheesesSuccess = () => ({
-// 	type: FETCH_CHEESES_SUCCESS
-// })
-
+// call stinkyCheese
 export const FETCH_CHEESES_ERROR = 'FETCH_CHEESES_ERROR'
-export const stinkyCheese = (error) => ({
-	type: FETCH_CHEESES_ERROR
+export const fetchCheesesError = (error) => ({
+	type: FETCH_CHEESES_ERROR,
 	error
 })
