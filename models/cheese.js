@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const CheeseSchema = new Schema({
-	cheese: [type:String]
+	cheese: Array
 });
 
 module.exports = mongoose.model('Cheese', CheeseSchema)

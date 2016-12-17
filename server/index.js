@@ -39,7 +39,7 @@ app.use(express.static(process.env.CLIENT_PATH));
 // ]
 
 app.get('/cheeses', (req, res) => {
-    Cheese.find({}, (err, cheeses){
+    Cheese.find({}, (err, cheeses) => {
         if(err){
             res.send(err)
         }
