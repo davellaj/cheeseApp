@@ -43,7 +43,7 @@ app.get('/cheeses', (req, res) => {
         if(err){
             res.send(err)
         }
-        res.status(200).json(cheeses)
+        res.status(200).json(cheeses[0].cheese)
         console.log('get request from server file calling in db: getting all cheeses');
         console.log(req.body)
     })
