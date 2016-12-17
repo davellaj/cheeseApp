@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 8080;
 console.log(`Server running in ${process.env.NODE_ENV} mode`);
 
 const app = express();
-const mongoose = require('mongoose')
-const Cheese = require('../models/cheese')
+import mongoose from 'mongoose'
+import Cheese from '../models/cheese'
 
 const dbUrl= 'mongodb://cheese:cheese@ds037814.mlab.com:37814/cheese'
 mongoose.connect(dbUrl)
